@@ -9,16 +9,20 @@ router.get('/', function(req,res){
 });
 
 /* GET all items. */
-router.get('/items', function(req,res){
-	// STUB
-	// TODO
-	res.json({"name":"Henry"});
+router.get('/items', function(req, res){
+
+	Item.find(function(err, items){
+		if (err)
+			res.send(err);
+
+		res.json(items);
+	});
 });
 
 /* POST create item. */
 router.post('/items', function(req,res){
 	var item = new Item();
-	
+
 	item.name = req.body.name
 
 	item.save(function(err){
