@@ -7,14 +7,12 @@ router.get('/',function(req,res){
 	res.render('index',{title:'Da hello page!'});
 });
 
-/* GET all users. */
-router.post('/items',function(req,res){
+/* GET all items. */
+router.get('/items',function(req,res){
 	var db = req.db;
-	var collection = db.get('usercollection');
+	var collection = db.get('items');
 	collection.find({},{},function(e,docs){
-		res.render('userlist',{
-			"userlist":docs
-		});
+		res.json(docs);
 	});
 });
 
