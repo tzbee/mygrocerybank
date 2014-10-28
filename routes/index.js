@@ -9,11 +9,8 @@ router.get('/',function(req,res){
 
 /* GET all items. */
 router.get('/items',function(req,res){
-	var db = req.db;
-	var collection = db.get('items');
-	collection.find({},{},function(e,docs){
-		res.json(docs);
-	});
+	// STUB
+	res.json({"name":"Henry"});
 });
 
 
