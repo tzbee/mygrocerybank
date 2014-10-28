@@ -10,8 +10,15 @@ router.get('/',function(req,res){
 /* GET all items. */
 router.get('/items',function(req,res){
 	// STUB
+	// TODO
 	res.json({"name":"Henry"});
 });
 
+/* POST create item. */
+router.post('/items',function(req,res){
+	// STUB
+	// TODO
+	res.send('Creating item named ' + req.body.name);
+});
 
 module.exports = router;
