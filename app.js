@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 mongoose.connect('localhost:27017/myGroceryBank');
-var db = mongoose.connection;
 
 var routes = require('./routes/index');
 
@@ -28,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
-    req.db = db;
     next();
 });
 
