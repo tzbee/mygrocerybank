@@ -3,16 +3,28 @@ extends layout
 block content
   h1= title
   p Hello world, welcome to #{title}
-  input(
-  id='itemName'
-  type='text'
-  placeholder='Item name'
-  )
-  input(
-  id='addItemBtn'
-  type='button'
-  value='Add item'
-  )
+    table
+      tr
+        td
+          input(
+          id='itemName'
+          type='text'
+          placeholder='Item name'
+          )
+      tr    
+        td
+          input(
+          id='itemPrice'
+          type='text'
+          placeholder='Item price'
+          )
+      tr    
+        td
+          input(
+          id='addItemBtn'
+          type='button'
+          value='Add item'
+          )
   span(id='messageLabel')
   div(id='items')
 
