@@ -37,18 +37,14 @@ $(document).ready(function() {
 		var getAllItems = function(){
 			$.get(itemResourceURL, function(items) {
 
-				var itemName, itemPrice, total = 0;
-				var itemListContent = '<div class="table-responsive text-center item-text"><table class="table"><tbody>';
+				var itemName, itemPrice, total = 0,
+					itemListContent = '<div class="table-responsive text-center item-text"><table class="table"><tbody>';
 
 				// Data row
 				$.each(items, function(i,item){
 					itemName = item.name != null ? item.name : '_';
 					itemPrice = item.price != null ? item.price : 0;
-					itemListContent += '<tr>'
-
-					itemListContent += '<td>' + itemName + '</td><td>' + itemPrice + '</td>';
-
-					itemListContent += '</tr>'
+					itemListContent += '<tr><td>' + itemName + '</td><td>' + itemPrice + '</td></tr>';
 
 					total += itemPrice;
 				})
