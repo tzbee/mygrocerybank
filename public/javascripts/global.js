@@ -1,30 +1,29 @@
-var mgb = {};
-
 (function(window,document,$){
-
-	var $addItemBtn = $('#addItemBtn'),
-		$itemName = $('#itemName'),
-		$messageLabel = $('#messageLabel'),
+	$(document).ready(function(){
+		
+		var
+			//JQuery elements
+			$addItemBtn = $('#addItemBtn'),
+			$itemName = $('#itemName'),
+			$messageLabel = $('#messageLabel'),
+			
+		//REST resourcess
 		itemResourceURL = '/items';
 
-	mgb.addItem = function(){
-		// XXX To fix
+		// Add an item to the system
+		var addItem = function(){
+			var itemName = $itemName.val();
 
-		var itemName = $itemName.value()
+			$.post(itemResourceURL,{name: itemName}).done(function(){
+				$messageLabel.html('Item ' + itemName +' created');
+			});
 
-		$.post(itemResourceURL,{name: itemName}).done(function(){
-			messageLabel.html('Item ' + itemName +' created');
-		});
+		};
 
-	};
-
-	$(document).ready(function(){
-		// XXX To fix
-		$addItemBtn.click(function(e){
-			console.log('HEOOOO');
+		$addItemBtn.click(function(){
+			addItem();
 		});
 
 	});
-
 
 })(window,document,jQuery);
