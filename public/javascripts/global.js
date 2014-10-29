@@ -6,10 +6,11 @@
 	$(document).ready(function() {
 		
 		var
-			// JQuery elements
-			$addItemBtn = $('#addItemBtn'),
-			$itemName = $('#itemName'),
-			$messageLabel = $('#messageLabel'),
+		
+		// JQuery elements
+		$addItemBtn = $('#addItemBtn'),
+		$itemName = $('#itemName'),
+		$messageLabel = $('#messageLabel'),
 			
 		// REST resourcess
 		itemResourceURL = '/items';
