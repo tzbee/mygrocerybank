@@ -35,13 +35,24 @@ $(document).ready(function() {
 		// Get all registered items
 		var getAllItems = function(){
 			$.get(itemResourceURL, function(items){
-				var itemListContent = '<ul>';
+				
+				// Header rows
+				var itemListContent = '<table><tr><th>Name</th><th>Price</th></tr>';
+				var itemName, itemPrice;
 
+				// Data row
 				$.each(items, function(i,item){
-					itemListContent += '<li>' + item.name + ' ' + item.price + '</li>'
+					itemName = item.name != null ? item.name : '_';
+					itemPrice = item.price != null ? item.price : '_';
+
+					itemListContent += '<tr><td>' + itemName + '</td>' + '<td>' + itemPrice + '</td></tr>'
 				})
 
-				itemListContent += '</ul>';
+				// TOTAL row
+				var total = 1000;
+				itemListContent += '<tr><td>TOTAL</td><td>' + total + '</td></tr>';
+
+				itemListContent += '</table>';
 
 				$items.html(itemListContent);
 			});
