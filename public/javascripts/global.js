@@ -2,8 +2,7 @@
  ** 	@author touzbi
  **/
 
-(function(window, document, $) {
-	$(document).ready(function() {
+$(document).ready(function() {
 		
 		var
 		
@@ -31,5 +30,3 @@
 		});
 
 	});
-
-})(window, document, jQuery);
