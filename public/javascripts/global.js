@@ -11,6 +11,7 @@ $(document).ready(function() {
 		$itemName = $('#itemName'),
 		$itemPrice = $('#itemPrice'),
 		$messageLabel = $('#messageLabel'),
+		//$total = $('#total'),
 		$items = $('#items');
 			
 		// REST resources
@@ -37,25 +38,26 @@ $(document).ready(function() {
 			$.get(itemResourceURL, function(items) {
 
 				var itemName, itemPrice, total = 0;
-				var itemListContent = '';
+				var itemListContent = '<div class="table-responsive text-center item-text"><table class="table"><tbody>';
 
 				// Data row
 				$.each(items, function(i,item){
 					itemName = item.name != null ? item.name : '_';
 					itemPrice = item.price != null ? item.price : 0;
+					itemListContent += '<tr>'
 
-					itemListContent += '<div class="row"><div class="col-xs-4">' + itemName + '</div><div cass="col-xs-4">' + itemPrice + '</div></div>';
+					itemListContent += '<td>' + itemName + '</td><td>' + itemPrice + '</td>';
 
-					// Update total
+					itemListContent += '</tr>'
+
 					total += itemPrice;
-
 				})
 
-				// TOTAL row
-				itemListContent += '<tr><td>TOTAL</td><td>' + total + '</td></tr>';
+				// update total
+				//$total.html(total);
 
-				itemListContent += '</table>';
-
+				itemListContent += '</tbody></table></div>'
+				
 				// Render element content
 				$items.html(itemListContent);
 			});

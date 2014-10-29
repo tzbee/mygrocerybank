@@ -1,3 +1,16 @@
-.container {
-	width: 75%;
+.item-text {
+	font-size: 20px;
+}
+
+.total-row {
+	font-weight: bold;
+	color: #BB0202;
+}
+
+#footer {
+ clear: both;
+ position: relative;
+ z-index: 10;
+ height: 3em;
+ margin-top: -3em;
 }
