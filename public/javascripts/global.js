@@ -2,7 +2,7 @@
  ** 	@author touzbi
  **/
 
-(function(window,document,$) {
+(function(window, document, $) {
 	$(document).ready(function() {
 		
 		var
