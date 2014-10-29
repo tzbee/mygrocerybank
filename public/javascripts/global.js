@@ -1,5 +1,5 @@
-(function(window,document,$){
-	$(document).ready(function(){
+(function(window,document,$) {
+	$(document).ready(function() {
 		
 		var
 			//JQuery elements
@@ -11,19 +11,20 @@
 		itemResourceURL = '/items';
 
 		// Add an item to the system
-		var addItem = function(){
+		var addItem = function() {
 			var itemName = $itemName.val();
+			var item = { name: itemName };
 
-			$.post(itemResourceURL,{name: itemName}).done(function(){
+			$.post(itemResourceURL, item).done(function(){
 				$messageLabel.html('Item ' + itemName +' created');
 			});
 
 		};
 
-		$addItemBtn.click(function(){
+		$addItemBtn.click(function() {
 			addItem();
 		});
 
 	});
 
-})(window,document,jQuery);
+})(window, document, jQuery);
