@@ -38,22 +38,27 @@ $(document).ready(function() {
 				
 				// Header rows
 				var itemListContent = '<table><tr><th>Name</th><th>Price</th></tr>';
-				var itemName, itemPrice;
 
+				var itemName, itemPrice, total = 0;
+				
 				// Data row
 				$.each(items, function(i,item){
 					itemName = item.name != null ? item.name : '_';
-					itemPrice = item.price != null ? item.price : '_';
+					itemPrice = item.price != null ? item.price : 0;
 
-					itemListContent += '<tr><td>' + itemName + '</td>' + '<td>' + itemPrice + '</td></tr>'
+					itemListContent += '<tr><td>' + itemName + '</td>' + '<td>' + itemPrice + '</td></tr>';
+
+					// Update total
+					total += itemPrice;
+
 				})
 
 				// TOTAL row
-				var total = 1000;
 				itemListContent += '<tr><td>TOTAL</td><td>' + total + '</td></tr>';
 
 				itemListContent += '</table>';
 
+				// Render element content
 				$items.html(itemListContent);
 			});
 		}
