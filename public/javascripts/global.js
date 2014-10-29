@@ -34,19 +34,17 @@ $(document).ready(function() {
 
 		// Get all registered items
 		var getAllItems = function(){
-			$.get(itemResourceURL, function(items){
-				
-				// Header rows
-				var itemListContent = '<table><tr><th>Name</th><th>Price</th></tr>';
+			$.get(itemResourceURL, function(items) {
 
 				var itemName, itemPrice, total = 0;
+				var itemListContent = '';
 
 				// Data row
 				$.each(items, function(i,item){
 					itemName = item.name != null ? item.name : '_';
 					itemPrice = item.price != null ? item.price : 0;
 
-					itemListContent += '<tr><td>' + itemName + '</td>' + '<td>' + itemPrice + '</td></tr>';
+					itemListContent += '<div class="row"><div class="col-xs-4">' + itemName + '</div><div cass="col-xs-4">' + itemPrice + '</div></div>';
 
 					// Update total
 					total += itemPrice;
