@@ -5,7 +5,7 @@ var Item = require('../models/Item.js');
 
 /* GET Index page. */
 router.get('/', function(req,res){
-	res.render('index',{title:'Da hello page!'});
+	res.render('index', { title:'My grocery bank' });
 });
 
 /* GET all items. */
