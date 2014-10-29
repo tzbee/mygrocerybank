@@ -56,6 +56,7 @@ $(document).ready(function() {
 				// update total
 				$total.html(total);
 
+				// Close table
 				itemListContent += '</tbody></table></div>'
 				
 				// Render element content
