@@ -1,29 +1,37 @@
 extends layout
 
 block content
-  h1= title
-    table
-      tr
-        td
-          input(
-          id='itemName'
-          type='text'
-          placeholder='Item name'
-          )
-      tr    
-        td
-          input(
-          id='itemPrice'
-          type='text'
-          placeholder='Item price'
-          )
-      tr    
-        td
-          input(
-          id='addItemBtn'
-          type='button'
-          value='Add item'
-          )
-  span(id='messageLabel')
-  div(id='items')
+  div(class='container')
+    div(class='jumbotron')
+        h1= title
+          div(class='lead')
+            table
+              tr
+                td
+                  input(
+                  id='itemName'
+                  type='text'
+                  placeholder='Item name'
+                  )
+              tr    
+                td
+                  input(
+                  id='itemPrice'
+                  type='text'
+                  placeholder='Item price'
+                  )
+              tr    
+                td
+                  input(
+                  id='addItemBtn'
+                  type='button'
+                  value='Add item'
+                  )
+            span(id='messageLabel')
+            div(id='items')
+  script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
+  script(src='/javascripts/global.js')
+
+
 
