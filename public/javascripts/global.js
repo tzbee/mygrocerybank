@@ -9,6 +9,7 @@ $(document).ready(function() {
 		// JQuery elements
 		$addItemBtn = $('#addItemBtn'),
 		$itemName = $('#itemName'),
+		$itemPrice = $('#itemPrice'),
 		$messageLabel = $('#messageLabel'),
 		$items = $('#items');
 			
@@ -18,7 +19,8 @@ $(document).ready(function() {
 		// Add an item to the system
 		var addItem = function() {
 			var itemName = $itemName.val();
-			var item = { name: itemName };
+			var itemPrice = $itemPrice.val();
+			var item = { name: itemName, price: itemPrice };
 
 			$.post(itemResourceURL, item).done(function(){
 				$messageLabel.html('Item ' + itemName +' created');
@@ -36,7 +38,7 @@ $(document).ready(function() {
 				var itemListContent = '<ul>';
 
 				$.each(items, function(i,item){
-					itemListContent += '<li>' + item.name +'</li>'
+					itemListContent += '<li>' + item.name + ' ' + item.price + '</li>'
 				})
 
 				itemListContent += '</ul>';

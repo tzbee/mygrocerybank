@@ -24,6 +24,7 @@ router.post('/items', function(req,res){
 	var item = new Item();
 
 	item.name = req.body.name
+	item.price = req.body.price
 
 	item.save(function(err){
 		if(err)
