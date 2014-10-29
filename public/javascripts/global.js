@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$messageLabel = $('#messageLabel'),
 		$items = $('#items');
 			
-		// REST resourcess
+		// REST resources
 		itemResourceURL = '/items';
 
 		// Add an item to the system
@@ -40,7 +40,7 @@ $(document).ready(function() {
 				var itemListContent = '<table><tr><th>Name</th><th>Price</th></tr>';
 
 				var itemName, itemPrice, total = 0;
-				
+
 				// Data row
 				$.each(items, function(i,item){
 					itemName = item.name != null ? item.name : '_';
