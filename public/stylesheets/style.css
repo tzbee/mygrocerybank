@@ -8,9 +8,9 @@
 }
 
 #footer {
- clear: both;
- position: relative;
- z-index: 10;
- height: 3em;
- margin-top: -3em;
+   position:fixed;
+   width:inherit;
+   bottom:0px;
+   border-top: solid 1px;
+   padding: 6px;
 }

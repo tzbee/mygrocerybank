@@ -4,7 +4,14 @@ block content
   h1(class='text-center')= title
   div(class='container')
     div(id='items')
-    div(id='footer') FOOTER
+    div(id='footer', class='table-responsive text-center item-text total-row')
+      table(class='table')
+        tbody
+          tr
+            td.
+              TOTAL	
+            td
+              span(id='total')
   script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js')
   script(src='/javascripts/global.js')

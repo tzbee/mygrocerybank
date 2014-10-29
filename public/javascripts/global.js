@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$itemName = $('#itemName'),
 		$itemPrice = $('#itemPrice'),
 		$messageLabel = $('#messageLabel'),
-		//$total = $('#total'),
+		$total = $('#total'),
 		$items = $('#items');
 			
 		// REST resources
@@ -54,7 +54,7 @@ $(document).ready(function() {
 				})
 
 				// update total
-				//$total.html(total);
+				$total.html(total);
 
 				itemListContent += '</tbody></table></div>'
 				
