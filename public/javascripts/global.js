@@ -1,13 +1,17 @@
+/** 	Global js file for myGroceryBank application
+ ** 	@author touzbi
+ **/
+
 (function(window,document,$) {
 	$(document).ready(function() {
 		
 		var
-			//JQuery elements
+			// JQuery elements
 			$addItemBtn = $('#addItemBtn'),
 			$itemName = $('#itemName'),
 			$messageLabel = $('#messageLabel'),
 			
-		//REST resourcess
+		// REST resourcess
 		itemResourceURL = '/items';
 
 		// Add an item to the system
