@@ -12,6 +12,7 @@ $(document).ready(function() {
 		$itemPrice = $('#itemPrice'),
 		$messageLabel = $('#messageLabel'),
 		$totalCount = $('#total'),
+		$itemWindow = $('.itemWindow'),
 		$items = $('#items');
 			
 		// REST resources
@@ -61,6 +62,15 @@ $(document).ready(function() {
 				$items.html(itemListContent);
 			});
 		}
+
+		var toggleItemWindow = function() {
+			$itemWindow.css('visibility', $itemWindow.css('visibility')=='hidden' ? 'visible' : 'hidden');
+		};
+
+
+		$(window).keyup(function(e){
+			toggleItemWindow();
+		});
 
 		$addItemBtn.click(function() {
 			addItem();
