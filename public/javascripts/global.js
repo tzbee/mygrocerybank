@@ -57,7 +57,7 @@ $(document).ready(function() {
 				// Close table
 				itemListContent += '</tbody></table></div>'
 				
-				// Render element content
+				// Render items
 				$items.html(itemListContent);
 			});
 		}
