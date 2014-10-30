@@ -26,7 +26,7 @@ $(document).ready(function() {
 			$.post(itemResourceURL, item).done(function(){
 				$messageLabel.html('Item ' + itemName +' created');
 
-				//Update item list at success 
+				//Update item list after creating the item 
 				getAllItems();
 			});
 
