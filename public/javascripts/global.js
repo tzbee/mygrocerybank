@@ -51,7 +51,7 @@ $(document).ready(function() {
 					totalCount += itemPrice;
 				})
 
-				// update total count
+				// Update total count
 				$totalCount.html(totalCount);
 
 				// Close table
