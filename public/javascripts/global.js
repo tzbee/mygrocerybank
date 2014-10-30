@@ -38,6 +38,8 @@ $(document).ready(function() {
 			$.get(itemResourceURL, function(items) {
 
 				var itemName, itemPrice, totalCount = 0,
+
+				// Open table
 					itemListContent = '<div class="table-responsive text-center item-text"><table class="table"><tbody>';
 
 				// Data row
