@@ -5,10 +5,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-mongoose.connect('localhost:27017/myGroceryBank');
-
 var routes = require('./routes/index');
 
 var app = express();
@@ -24,11 +20,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Make our db accessible to our router
-app.use(function(req,res,next){
-    next();
-});
 
 app.use('/', routes);
 
