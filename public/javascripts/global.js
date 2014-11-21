@@ -14,7 +14,6 @@ $(document).ready(function() {
 		$items = $('.items'),
 
 		supportsLocalStorage = typeof(Storage) !== "undefined";
-			
 
 		// Add an item to the system
 		var addItem = function() {
@@ -57,7 +56,9 @@ $(document).ready(function() {
 				$.each(items, function(i,item){
 					itemName = item.name !== null ? item.name : '_';
 					itemPrice = item.price !== null ? item.price : 0;
-					itemListContent += '<li class="item">' + '<span class="fa fa-camera-retro fa-5x item-icon"></span>' + '</li>';
+					itemListContent += '<li class="item"' + 
+										'data-item="' + itemName + '"' + 
+										'>' + '<span class="fa fa-camera-retro fa-5x item-icon"></span>' + '</li>';
 				})
 
 				// Close table
@@ -67,19 +68,28 @@ $(document).ready(function() {
 				$items.html(itemListContent);
 		};
 
-			
-		var getItemsAndRender = function() {
+		function getItemsAndRender() {
 			getAllItems(function(items) {
 				renderItems(items);
 			});			
 		};
+
+
+		// Get all items at startup and render them
+		getItemsAndRender();
 
 		$addItemBtn.click(function() {
 			addItem();
 			getItemsAndRender();
 		});
 
-		// Get all items at startup and render them
-		getItemsAndRender();
+		$('.item').click(function() {
+			var $item = $(this);
+			var item = $item.attr('data-item');
+			console.log('Item selected: ' + item);
+			$('.selected').removeClass('selected');
+			$item.addClass('selected');
+		});
+
 
 	});

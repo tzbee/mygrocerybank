@@ -35,3 +35,7 @@
   	vertical-align: middle;
   	line-height: normal;   
 }
+
+.selected {
+	color: #CF000F;
+}
