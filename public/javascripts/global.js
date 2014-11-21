@@ -74,6 +74,17 @@ $(document).ready(function() {
 			});			
 		};
 
+		function selectItem(itemName) {
+			$(".item[data-item='" + itemName + "']").addClass('selected');
+		}
+
+		function unselectAllItems() {
+			$('.selected').removeClass('selected');
+		}
+
+		function getSelectedItem() {
+			return $('.selected').attr('data-item');
+		}
 
 		// Get all items at startup and render them
 		getItemsAndRender();
@@ -85,10 +96,10 @@ $(document).ready(function() {
 
 		$('.item').click(function() {
 			var $item = $(this);
-			var item = $item.attr('data-item');
-			console.log('Item selected: ' + item);
-			$('.selected').removeClass('selected');
-			$item.addClass('selected');
+			var itemName = $item.attr('data-item');
+			unselectAllItems();
+			selectItem(itemName);
+			console.log(getSelectedItem());
 		});
 
 
