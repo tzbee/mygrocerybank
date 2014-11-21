@@ -51,10 +51,11 @@ $(document).ready(function() {
 
 				itemName = item.name !== null ? item.name : '_';
 
+
 				var $item = $('<li>', {
 					"class": 'item',
 					"data-item": itemName,
-					"html": '<span class="fa fa-camera-retro fa-5x item-icon"></span>', 
+					"html": '<span class="fa fa-' + itemName + ' fa-5x item-icon"></span>', 
 					"on": {
 						click: function() {
 							doSelection($item);
