@@ -25,9 +25,7 @@
 }
 
 .item:hover {
-	box-shadow: 0 1px 10px 1px #888888;
-	border-radius: 20px;
-	background-color: #FEFEFE;
+	font-size: 1.05em;
 }
 
 .item-icon {
