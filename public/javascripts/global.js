@@ -8,6 +8,7 @@ $(document).ready(function() {
 		
 		// JQuery elements
 		$addItemBtn = $('#addItemBtn'),
+		$clearItemsBtn = $('#clearItemsBtn'),
 		$itemName = $('#itemName'),
 		$messageLabel = $('#messageLabel'),
 		$items = $('.items'),
@@ -67,6 +68,12 @@ $(document).ready(function() {
 
 		};
 
+		function clearItems() {
+			if(supportsLocalStorage) {
+				localStorage.removeItem('items');
+			}
+		}
+
 		// Item selection functions
 
 		var selectedClass = 'selected';
@@ -113,6 +120,11 @@ $(document).ready(function() {
 			var item = { name: itemName};
 
 			addItem(item);
+			getItemsAndRender();
+		});
+
+		$clearItemsBtn.click(function() {
+			clearItems();
 			getItemsAndRender();
 		});
 
