@@ -11,9 +11,7 @@ $(document).ready(function() {
 		$itemName = $('#itemName'),
 		$itemPrice = $('#itemPrice'),
 		$messageLabel = $('#messageLabel'),
-		$totalCount = $('#total'),
-		$itemWindow = $('.itemWindow'),
-		$items = $('#items'),
+		$items = $('.items'),
 
 		supportsLocalStorage = typeof(Storage) !== "undefined";
 			
@@ -50,7 +48,7 @@ $(document).ready(function() {
 		};
 
 		var renderItems = function(items) {
-			var itemName, itemPrice, totalCount = 0,
+			var itemName, itemPrice,
 
 				// Open table
 				itemListContent = '<ul>';
@@ -60,8 +58,6 @@ $(document).ready(function() {
 					itemName = item.name !== null ? item.name : '_';
 					itemPrice = item.price !== null ? item.price : 0;
 					itemListContent += '<li class="item">' + '<span class="fa fa-camera-retro fa-5x item-icon"></span>' + '</li>';
-
-					totalCount += itemPrice;
 				})
 
 				// Close table
