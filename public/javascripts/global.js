@@ -72,6 +72,10 @@ $(document).ready(function() {
 
 		};
 
+		// Item selection functions
+
+		var selectedClass = 'selected';
+
 		function getItemsAndRender() {
 			getAllItems(function(items) {
 				renderItems(items);
@@ -79,19 +83,19 @@ $(document).ready(function() {
 		};
 
 		function selectItem($item) {
-			$item.addClass('selected');
+			$item.addClass(selectedClass);
 		}
 
 		function unselectAllItems() {
-			$('.selected').removeClass('selected');
+			$('.' + selectedClass).removeClass(selectedClass);
 		}
 
 		function getSelectedItem() {
-			return $('.selected').attr('data-item');
+			return $('.' + selectedClass).attr('data-item');
 		}
 
 		function isSelected($item) {
-			return $item.hasClass('selected');
+			return $item.hasClass(selectedClass);
 		}
 
 		function doSelection($item) {
@@ -105,6 +109,7 @@ $(document).ready(function() {
 		}
 
 		// Get all items at startup and render them
+		
 		getItemsAndRender();
 
 		$addItemBtn.click(function() {
