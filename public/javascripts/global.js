@@ -53,33 +53,25 @@ $(document).ready(function() {
 			var itemName, itemPrice, totalCount = 0,
 
 				// Open table
-				itemListContent = '<div class="table-responsive text-center item-text"><table class="table"><tbody>';
+				itemListContent = '<ul>';
 
 				// Data row
 				$.each(items, function(i,item){
 					itemName = item.name !== null ? item.name : '_';
 					itemPrice = item.price !== null ? item.price : 0;
-					itemListContent += '<tr><td>' + itemName + '</td><td>' + itemPrice + '</td></tr>';
+					itemListContent += '<li class="item">' + itemName +' ' + itemPrice + '</li>';
 
 					totalCount += itemPrice;
 				})
 
-				// Update total count
-				$totalCount.html(totalCount);
-
 				// Close table
-				itemListContent += '</tbody></table></div>'
+				itemListContent += '</ul>'
 				
 				// Render items
 				$items.html(itemListContent);
 		};
 
-		var toggleItemWindow = function() {
-			var attr = 'display';
-			$itemWindow.css(attr, $itemWindow.css(attr)=='none' ? 'block' : 'none');
-		};
-
-
+			
 		var getItemsAndRender = function() {
 			getAllItems(function(items) {
 				renderItems(items);
@@ -93,6 +85,5 @@ $(document).ready(function() {
 
 		// Get all items at startup and render them
 		getItemsAndRender();
-		toggleItemWindow();
 
 	});
