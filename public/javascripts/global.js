@@ -16,13 +16,9 @@ $(document).ready(function() {
 		supportsLocalStorage = typeof(Storage) !== "undefined";
 
 		// Add an item to the system
-		var addItem = function() {
+		var addItem = function(item) {
 
 			if(supportsLocalStorage) {
-
-				var itemName = $itemName.val();
-				var itemPrice = $itemPrice.val();
-				var item = { name: itemName, price: itemPrice };
 
 				var items;
 
@@ -109,11 +105,16 @@ $(document).ready(function() {
 		}
 
 		// Get all items at startup and render them
-		
+
 		getItemsAndRender();
 
 		$addItemBtn.click(function() {
-			addItem();
+
+			var itemName = $itemName.val();
+			var itemPrice = $itemPrice.val();
+			var item = { name: itemName, price: itemPrice };
+
+			addItem(item);
 			getItemsAndRender();
 		});
 
