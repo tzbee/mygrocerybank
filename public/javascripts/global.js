@@ -20,16 +20,16 @@ $(document).ready(function() {
 
 			if(supportsLocalStorage) {
 
-				var items;
+				getAllItems(function(items) {
+					
+					// Add the item to the existing item list
+					items.push(item);
 
-				getAllItems(function(itemsFound) {
-					items = itemsFound;
+					// Save the items to local storage
+					localStorage.items = JSON.stringify(items);
 				});
-
-				items.push(item);
-
-				// Save to local storage
-				localStorage.items = JSON.stringify(items);
+			} else {
+				// TODO if no local storage support from browser
 			}
 
 		};
