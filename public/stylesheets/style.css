@@ -1,3 +1,7 @@
+.text-center {
+	text-align: center;
+}
+
 .items {
 	margin: auto;
 	width: 1000px;
