@@ -59,7 +59,7 @@ $(document).ready(function() {
 				$.each(items, function(i,item){
 					itemName = item.name !== null ? item.name : '_';
 					itemPrice = item.price !== null ? item.price : 0;
-					itemListContent += '<li class="item">' + itemName +' ' + itemPrice + '</li>';
+					itemListContent += '<li class="item">' + '<span class="fa fa-camera-retro fa-5x item-icon"></span>' + '</li>';
 
 					totalCount += itemPrice;
 				})

@@ -11,15 +11,23 @@
 
 .item {
 	display: inline-block;
-	width: 100px;
-	height: 100px;
+	width: 90px;
+	height: 90px;
 	background-color: #FEFEFE;
 	margin: 3px;
 	padding: 3px;
-	box-shadow: 0 1px 4px 1px #888888;
-	border-radius: 2px;
+	line-height: 85px;
+  	text-align: center;
 }
 
 .item:hover {
-	box-shadow: 0 1px 6px 1px #888888;
+	box-shadow: 0 1px 10px 1px #888888;
+	border-radius: 20px;
+	background-color: #FEFEFE;
+}
+
+.item-icon {
+	display: inline-block;
+  	vertical-align: middle;
+  	line-height: normal;   
 }
