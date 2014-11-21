@@ -9,7 +9,6 @@ $(document).ready(function() {
 		// JQuery elements
 		$addItemBtn = $('#addItemBtn'),
 		$itemName = $('#itemName'),
-		$itemPrice = $('#itemPrice'),
 		$messageLabel = $('#messageLabel'),
 		$items = $('.items'),
 
@@ -43,7 +42,7 @@ $(document).ready(function() {
 		};
 
 		var renderItems = function(items) {
-			var itemName, itemPrice;
+			var itemName;
 
 			$items.html('<ul></ul>');
 
@@ -51,7 +50,6 @@ $(document).ready(function() {
 			$.each(items, function(index, item) {
 
 				itemName = item.name !== null ? item.name : '_';
-				itemPrice = item.price !== null ? item.price : 0;
 
 				var $item = $('<li>', {
 					"class": 'item',
@@ -111,8 +109,7 @@ $(document).ready(function() {
 		$addItemBtn.click(function() {
 
 			var itemName = $itemName.val();
-			var itemPrice = $itemPrice.val();
-			var item = { name: itemName, price: itemPrice };
+			var item = { name: itemName};
 
 			addItem(item);
 			getItemsAndRender();
