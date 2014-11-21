@@ -47,25 +47,29 @@ $(document).ready(function() {
 		};
 
 		var renderItems = function(items) {
-			var itemName, itemPrice,
+			var itemName, itemPrice;
 
-				// Open table
-				itemListContent = '<ul>';
+			$items.html('<ul></ul>');
 
-				// Data row
-				$.each(items, function(i,item){
-					itemName = item.name !== null ? item.name : '_';
-					itemPrice = item.price !== null ? item.price : 0;
-					itemListContent += '<li class="item"' + 
-										'data-item="' + itemName + '"' + 
-										'>' + '<span class="fa fa-camera-retro fa-5x item-icon"></span>' + '</li>';
-				})
+			// Data row
+			$.each(items, function(index, item) {
 
-				// Close table
-				itemListContent += '</ul>'
-				
-				// Render items
-				$items.html(itemListContent);
+				itemName = item.name !== null ? item.name : '_';
+				itemPrice = item.price !== null ? item.price : 0;
+
+				var $item = $('<li>', {
+					"class": 'item',
+					"data-item": itemName,
+					"html": '<span class="fa fa-camera-retro fa-5x item-icon"></span>', 
+					"on": {
+						click: function() {
+							doSelection($item);
+						}
+					}
+				}).appendTo($items.children('ul'));
+
+			});
+
 		};
 
 		function getItemsAndRender() {
@@ -74,8 +78,8 @@ $(document).ready(function() {
 			});			
 		};
 
-		function selectItem(itemName) {
-			$(".item[data-item='" + itemName + "']").addClass('selected');
+		function selectItem($item) {
+			$item.addClass('selected');
 		}
 
 		function unselectAllItems() {
@@ -86,6 +90,20 @@ $(document).ready(function() {
 			return $('.selected').attr('data-item');
 		}
 
+		function isSelected($item) {
+			return $item.hasClass('selected');
+		}
+
+		function doSelection($item) {
+			if (isSelected($item)) {
+				unselectAllItems();
+			} else {
+				unselectAllItems();
+				selectItem($item);
+			}
+
+		}
+
 		// Get all items at startup and render them
 		getItemsAndRender();
 
@@ -93,14 +111,5 @@ $(document).ready(function() {
 			addItem();
 			getItemsAndRender();
 		});
-
-		$('.item').click(function() {
-			var $item = $(this);
-			var itemName = $item.attr('data-item');
-			unselectAllItems();
-			selectItem(itemName);
-			console.log(getSelectedItem());
-		});
-
 
 	});
